@@ -365,15 +365,23 @@
     font-size: 16px;
     text-align: left;
   }
+
+  #more {
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+  }
   #topinfo {
     background-color: rgba(128, 128, 128, 0.13);
-    width: 100%;
+    width: 50%;
     margin: 0px;
     padding: 0px;
     border-radius: 50px;
     color: white;
     font-size: 18px;
-    margin: 4px;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
   }
 
   #topinfo:focus {

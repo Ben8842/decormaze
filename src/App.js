@@ -11,24 +11,95 @@ class App extends Component {
     this.state = {
       aboutFlag: false,
       projectFlag: false,
+      contactFlag: false,
     };
   }
 
   showAbout() {
     if (this.state.aboutFlag === true) {
       this.setState({ aboutFlag: false });
-    } else this.setState({ aboutFlag: true });
+    } else
+      this.setState({
+        aboutFlag: true,
+        projectFlag: false,
+        contactFlag: false,
+      });
   }
   showProjects() {
     if (this.state.projectFlag === true) {
       this.setState({ projectFlag: false });
-    } else this.setState({ projectFlag: true });
+    } else
+      this.setState({
+        projectFlag: true,
+        aboutFlag: false,
+        contactFlag: false,
+      });
+  }
+  showContact() {
+    if (this.state.contactFlag === true) {
+      this.setState({ contactFlag: false });
+    } else
+      this.setState({
+        contactFlag: true,
+        aboutFlag: false,
+        projectFlag: false,
+      });
   }
 
   render() {
+    const contact = (
+      <div>
+        <Bar sizeValue="20" width="34" height="5" />
+        <div>&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;</div>
+        <div>&nbsp;&nbsp;</div>
+        <p id="nameT">
+          <p>Contact: perkinsben@yahoo.com </p>
+        </p>
+        <p id="topinfoS">
+          <button id="topinfo">
+            <a href="https://calendly.com/perkinsben">Schedule a meeting</a>
+          </button>
+        </p>
+        <p>
+          <button id="topinfo">
+            <a href="https://github.com/Ben8842">GitHub Profile</a>
+          </button>
+          <span>
+            <button id="topinfo">
+              <a href="https://www.linkedin.com/in/ben-perkins-91262b16">
+                Linkedin Profile
+              </a>
+            </button>
+          </span>
+        </p>
+      </div>
+    );
+    const basic = (
+      <div>
+        <p id="topinfoS">
+          <button id="topinfo">
+            <a href="https://calendly.com/perkinsben">Schedule a meeting</a>
+          </button>
+        </p>
+        <p>
+          <button id="topinfo">
+            <a href="https://github.com/Ben8842">GitHub Profile</a>
+          </button>
+          <span>
+            <button id="topinfo">
+              <a href="https://www.linkedin.com/in/ben-perkins-91262b16">
+                Linkedin Profile
+              </a>
+            </button>
+          </span>
+        </p>
+      </div>
+    );
     const projectContainer = (
       <div>
-        <Bar sizeValue="20" width="44" height="5" />
+        <Bar sizeValue="20" width="34" height="5" />
         <p id="topinfoS">
           <button id="topinfo">
             <a href="https://optimistic-babbage-2ed085.netlify.app/">
@@ -100,7 +171,7 @@ class App extends Component {
     );
     const aboutContainer = (
       <div>
-        <Bar sizeValue="20" width="44" height="5" />
+        <Bar sizeValue="20" width="34" height="5" />
         <p id="nameT">
           <p id="nameT">Name: Benjamin Perkins</p>
           <p>Contact: perkinsben@yahoo.com </p>
@@ -122,35 +193,26 @@ class App extends Component {
       </div>
     );
     return (
-      <div>
-        <Bar sizeValue="20" width="44" height="5" />
-        <p id="topinfoS">
-          <button id="topinfo">
-            <a href="https://calendly.com/perkinsben">
-              Schedule a meeting with me
-            </a>
-          </button>
-        </p>
-        <p>
-          <button id="topinfo">
-            <a href="https://github.com/Ben8842">My GitHub Profile</a>
-          </button>
-          <p>
-            <button id="topinfo">
-              <a href="https://www.linkedin.com/in/ben-perkins-91262b16">
-                My Linkedin Profile
-              </a>
-            </button>
-          </p>
-        </p>
-
-        <div>{"    "}</div>
+      <div id="more">
+        <Bar sizeValue="20" width="36" height="5" />
         <button id="topinfo" onClick={() => this.showAbout()}>
           About Me
         </button>
         <button id="topinfo" onClick={() => this.showProjects()}>
           My Projects
         </button>
+        <button id="topinfo" onClick={() => this.showContact()}>
+          Contact Me
+        </button>
+
+        {!this.state.aboutFlag &&
+        !this.state.projectFlag &&
+        !this.state.contactFlag
+          ? basic
+          : null}
+
+        <div>{"    "}</div>
+        {this.state.contactFlag ? contact : null}
         {this.state.aboutFlag ? aboutContainer : null}
         {this.state.projectFlag ? projectContainer : null}
       </div>
