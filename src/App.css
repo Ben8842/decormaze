@@ -356,6 +356,9 @@ button:focus {
 }
 
 @media only screen and (max-width: 700px) {
+  Body {
+    background-color: black;
+  }
   .HeaderSpot {
     margin: 4px;
     background-color: black;
@@ -373,20 +376,6 @@ button:focus {
 
   button:focus {
     outline: none;
-  }
-
-  #squareGreen {
-    background-color: green;
-    color: black;
-
-    border: none;
-
-    font-weight: bold;
-
-    height: 18px;
-
-    text-align: center;
-    width: 75px;
   }
 
   .App {
@@ -414,10 +403,10 @@ button:focus {
     color: black;
     padding: 0;
 
-    height: 20px;
-    margin: -2px;
+    height: 8px;
+    margin: 0px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .bplus {
@@ -425,10 +414,10 @@ button:focus {
     background-color: white;
     color: black;
     padding: 0;
-    height: 20px;
-    margin: -2px;
+    height: 8px;
+    margin: 0px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .green {
@@ -437,10 +426,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   #largebutton {
@@ -480,10 +469,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange2 {
@@ -492,10 +481,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange2 {
@@ -504,10 +493,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange3 {
@@ -516,10 +505,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange4 {
@@ -528,10 +517,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange5 {
@@ -540,10 +529,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange6 {
@@ -552,10 +541,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange7 {
@@ -564,10 +553,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .orange8 {
@@ -576,10 +565,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .lightorange {
@@ -588,10 +577,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .blue {
@@ -600,10 +589,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .slider {
@@ -618,10 +607,10 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
-    height: 20px;
+    margin: 0px;
+    height: 8px;
     text-align: center;
-    width: 20px;
+    width: 8px;
   }
 
   .bgrey {
@@ -630,7 +619,7 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
+    margin: 0px;
     height: 50px;
     text-align: center;
     width: 50px;
@@ -642,7 +631,7 @@ button:focus {
     color: white;
     padding: 0;
     font-size: 5px;
-    margin: -2px;
+    margin: 0px;
     height: 50px;
     text-align: center;
     width: 50px;
@@ -725,6 +714,6 @@ button:focus {
     color: rgb(234, 0, 255);
   }
   .newLine {
-    height: 20px;
+    height: 8px;
   }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Building extends Component {
+class Bar extends Component {
   constructor(props) {
     super(props);
 
@@ -19,6 +19,8 @@ class Building extends Component {
       wallscore: 0,
       timeT: 0,
       flagStart: false,
+      width: this.props.width,
+      height: this.props.height,
     };
   }
 
@@ -44,7 +46,7 @@ class Building extends Component {
         return <button class="icon" codeX={x} codeY={y}></button>;
       } else if (x == 0 && y == 0) {
         return <button class="green" codeX={x} codeY={y}></button>;
-      } else if (x == viewSize - 2 && y == viewSize - 2) {
+      } else if (x == this.props.width - 2 && y == this.props.height - 2) {
         return <button class="green" codeX={x} codeY={y}></button>;
       } else if (
         x == pathO[pathO.length - 1][0] &&
@@ -168,7 +170,7 @@ class Building extends Component {
   pathgenerator() {
     var { pathO } = this.state;
     const viewSize = this.props.sizeValue;
-    const sizeLimit = viewSize - 2;
+    const sizeLimit = this.props.width - 2;
     var exwy = pathO;
 
     function randomNumber(min, max) {
@@ -263,18 +265,11 @@ class Building extends Component {
       for (var z = 0; z < 4; z++) {
         if (
           0 <= potentialMove[z][0] &&
-          potentialMove[z][0] <= sizeLimit &&
+          potentialMove[z][0] <= this.props.width &&
           0 <= potentialMove[z][1] &&
-          potentialMove[z][1] <= sizeLimit
+          potentialMove[z][1] <= this.props.height
         ) {
-          if (
-            sizeLimit / 3 <= potentialMove[z][0] &&
-            potentialMove[z][0] <= (sizeLimit / 3) * 2 &&
-            sizeLimit / 3 <= potentialMove[z][1] &&
-            potentialMove[z][1] <= (sizeLimit / 3) * 2
-          ) {
-            boards[z] = true;
-          } else boards[z] = false;
+          boards[z] = false;
         } else boards[z] = true;
       }
 
@@ -353,7 +348,7 @@ class Building extends Component {
   morePathFinders() {
     var { pathO, stepback } = this.state;
     const viewSize = this.props.sizeValue;
-    const sizeLimit = viewSize - 2;
+    const sizeLimit = this.props.width - 2;
     var exwy = pathO;
 
     function randomNumber(min, max) {
@@ -441,18 +436,11 @@ class Building extends Component {
     for (var z = 0; z < 4; z++) {
       if (
         0 <= potentialMove[z][0] &&
-        potentialMove[z][0] <= sizeLimit &&
+        potentialMove[z][0] <= this.props.width &&
         0 <= potentialMove[z][1] &&
-        potentialMove[z][1] <= sizeLimit
+        potentialMove[z][1] <= this.props.height
       ) {
-        if (
-          sizeLimit / 3 <= potentialMove[z][0] &&
-          potentialMove[z][0] <= (sizeLimit / 3) * 2 &&
-          sizeLimit / 3 <= potentialMove[z][1] &&
-          potentialMove[z][1] <= (sizeLimit / 3) * 2
-        ) {
-          boards[z] = true;
-        } else boards[z] = false;
+        boards[z] = false;
       } else boards[z] = true;
     }
 
@@ -618,8 +606,8 @@ class Building extends Component {
 
     var x;
     var y;
-    for (y = 0; y < viewSize; y++) {
-      for (x = 0; x < viewSize; x++) {
+    for (y = 0; y < this.props.height; y++) {
+      for (x = 0; x < this.props.width; x++) {
         elementS.push(this.renderSquare(x, y));
       }
       elementZ.push(
@@ -629,7 +617,7 @@ class Building extends Component {
           })}
         </div>
       );
-      for (x = 0; x < viewSize; x++) {
+      for (x = 0; x < this.props.width; x++) {
         elementS.pop();
       }
     }
@@ -643,13 +631,13 @@ class Building extends Component {
     );
 
     const entireThingz = (
-      <span className="entireThing">
+      <div className="entireThing">
         <span id="mazeSpot">
           {elementZ.map((value, index) => {
             return <span key={index}>{value}</span>;
           })}
         </span>
-      </span>
+      </div>
     );
 
     return (
@@ -660,4 +648,4 @@ class Building extends Component {
   }
 }
 
-export default Building;
+export default Bar;
