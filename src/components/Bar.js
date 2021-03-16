@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./bar.css";
 
 class Bar extends Component {
   constructor(props) {
@@ -44,10 +45,6 @@ class Bar extends Component {
     for (i = 0; i < pathO.length; i++) {
       if (stepback == pathO.length && x == icon[0] && y == icon[1]) {
         return <button class="icon" codeX={x} codeY={y}></button>;
-      } else if (x == 0 && y == 0) {
-        return <button class="green" codeX={x} codeY={y}></button>;
-      } else if (x == this.props.width - 2 && y == this.props.height - 2) {
-        return <button class="green" codeX={x} codeY={y}></button>;
       } else if (
         x == pathO[pathO.length - 1][0] &&
         y == pathO[pathO.length - 1][1] &&
@@ -267,7 +264,7 @@ class Bar extends Component {
           0 <= potentialMove[z][0] &&
           potentialMove[z][0] <= this.props.width &&
           0 <= potentialMove[z][1] &&
-          potentialMove[z][1] <= this.props.height
+          potentialMove[z][1] <= this.props.height - 1
         ) {
           boards[z] = false;
         } else boards[z] = true;
@@ -438,7 +435,7 @@ class Bar extends Component {
         0 <= potentialMove[z][0] &&
         potentialMove[z][0] <= this.props.width &&
         0 <= potentialMove[z][1] &&
-        potentialMove[z][1] <= this.props.height
+        potentialMove[z][1] <= this.props.height - 1
       ) {
         boards[z] = false;
       } else boards[z] = true;
@@ -528,52 +525,6 @@ class Bar extends Component {
     this.forceUpdate();
   }
 
-  renderControl(x, y) {
-    if (
-      (x == 0 && y == 0) |
-      (x == 2 && y == 0) |
-      (x == 0 && y == 2) |
-      (x == 2 && y == 2)
-    ) {
-      return <button class="bgrey" codeX={x} codeY={y}></button>;
-    } else if (x == 1 && y == 0) {
-      return (
-        <button
-          class="bdirection"
-          codeX={x}
-          codeY={y}
-          onClick={() => this.upmove()}
-        ></button>
-      );
-    } else if (x == 0 && y == 1) {
-      return (
-        <button
-          class="bdirection"
-          codeX={x}
-          codeY={y}
-          onClick={() => this.leftmove()}
-        ></button>
-      );
-    } else if (x == 2 && y == 1) {
-      return (
-        <button
-          class="bdirection"
-          codeX={x}
-          codeY={y}
-          onClick={() => this.rightmove()}
-        ></button>
-      );
-    } else if (x == 1 && y == 2) {
-      return (
-        <button
-          class="bdirection"
-          codeX={x}
-          codeY={y}
-          onClick={() => this.downmove()}
-        ></button>
-      );
-    } else return <button class="bdirection" codeX={x} codeY={y}></button>;
-  }
   //  const funtimer = <div>{MyStopwatch()}</div>;
 
   render() {
@@ -581,28 +532,6 @@ class Bar extends Component {
     const elementS = [];
     const elementZ = [];
     const viewSize = this.props.sizeValue;
-
-    const aray = [];
-    const bray = [];
-    var a;
-    var b;
-    if (controltime == true) {
-      for (a = 0; a < 3; a++) {
-        for (b = 0; b < 3; b++) {
-          aray.push(<span>{this.renderControl(b, a)}</span>);
-        }
-        bray.push(
-          <div className="newLineC">
-            {aray.map((value, index) => {
-              return <span key={index}>{value}</span>;
-            })}
-          </div>
-        );
-        for (b = 0; b < 9; b++) {
-          aray.pop();
-        }
-      }
-    }
 
     var x;
     var y;
