@@ -3,34 +3,103 @@ import Building from "./components/Building";
 import Bar from "./components/Bar";
 
 import "./App.css";
+import "./AppMobile.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      aboutFlag: false,
+      projectFlag: false,
+    };
+  }
+
+  showAbout() {
+    if (this.state.aboutFlag === true) {
+      this.setState({ aboutFlag: false });
+    } else this.setState({ aboutFlag: true });
+  }
+  showProjects() {
+    if (this.state.projectFlag === true) {
+      this.setState({ projectFlag: false });
+    } else this.setState({ projectFlag: true });
+  }
+
   render() {
-    return (
+    const projectContainer = (
       <div>
         <Bar sizeValue="20" width="44" height="5" />
         <p id="topinfoS">
           <button id="topinfo">
-            <a href="https://calendly.com/perkinsben">
-              Click here to schedule a meeting with me
+            <a href="https://optimistic-babbage-2ed085.netlify.app/">
+              Maze Algorithm
             </a>
           </button>
         </p>
         <p>
-          {" "}
           <button id="topinfo">
-            <a href="https://github.com/Ben8842">
-              Click here to find my GitHub profile
-            </a>
+            <a href="https://trivia-redux.herokuapp.com/">Trivia App</a>
+          </button>
+        </p>
+        <p>
+          <button id="topinfo">
+            <a href="https://www.moviegame.fun/">Movie Game</a>
+          </button>
+        </p>
+        <p>
+          <button id="topinfo">
+            <a href="https://trivia-redux.herokuapp.com/">Trivia App</a>
           </button>
           <p>
             <button id="topinfo">
-              <a href="https://www.linkedin.com/in/ben-perkins-91262b16">
-                Click here to Connect on Linkedin.com
+              <a href="https://vibrant-spence-207a4e.netlify.app/">
+                Emoji Game
               </a>
             </button>
           </p>
+          <p>
+            <button id="topinfo">
+              <a href="https://ben8842.github.io/BitProject/">
+                Cryptocurrency Project
+              </a>
+            </button>
+            <p>
+              <button id="topinfo">
+                <a
+                  id="bproject"
+                  href="https://jolly-meninsky-2047bc.netlify.app/"
+                >
+                  Triangle
+                </a>
+              </button>
+            </p>
+            <p>
+              <button id="topinfo">
+                <a href="https://admiring-spence-0175e7.netlify.app/">
+                  Snake Game
+                </a>
+              </button>
+            </p>
+            <p>
+              <button id="topinfo">
+                <a id="bproject" href="https://tender-benz-d42ce4.netlify.app/">
+                  Queen Puzzle
+                </a>
+              </button>
+            </p>
+            <p>
+              <button id="topinfo">
+                <a href="https://wordsearch-generator.herokuapp.com/">
+                  Word Search Generator
+                </a>
+              </button>
+            </p>
+          </p>
         </p>
+      </div>
+    );
+    const aboutContainer = (
+      <div>
         <Bar sizeValue="20" width="44" height="5" />
         <p id="nameT">
           <p id="nameT">Name: Benjamin Perkins</p>
@@ -50,20 +119,40 @@ class App extends Component {
           </p>
           <p>• FIX Protocol, PowerShell, FTP, TFS, JIRA</p>
         </p>
-        <Bar sizeValue="20" width="44" height="8" />
-        <div id="fixy">
-          <button class="fancy" variant="secondary" size="lg" block>
-            <a
-              id="bproject"
-              href="https://optimistic-babbage-2ed085.netlify.app/"
-            >
-              Maze Algorithm
+      </div>
+    );
+    return (
+      <div>
+        <Bar sizeValue="20" width="44" height="5" />
+        <p id="topinfoS">
+          <button id="topinfo">
+            <a href="https://calendly.com/perkinsben">
+              Schedule a meeting with me
             </a>
           </button>
-          <button class="fancy" variant="secondary" size="lg" block>
-            <a href="https://trivia-redux.herokuapp.com/">Trivia App</a>
+        </p>
+        <p>
+          <button id="topinfo">
+            <a href="https://github.com/Ben8842">My GitHub Profile</a>
           </button>
-        </div>
+          <p>
+            <button id="topinfo">
+              <a href="https://www.linkedin.com/in/ben-perkins-91262b16">
+                My Linkedin Profile
+              </a>
+            </button>
+          </p>
+        </p>
+
+        <div>{"    "}</div>
+        <button id="topinfo" onClick={() => this.showAbout()}>
+          About Me
+        </button>
+        <button id="topinfo" onClick={() => this.showProjects()}>
+          My Projects
+        </button>
+        {this.state.aboutFlag ? aboutContainer : null}
+        {this.state.projectFlag ? projectContainer : null}
       </div>
     );
   }
