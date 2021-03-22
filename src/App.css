@@ -255,6 +255,10 @@ a:active {
     background-color: black;
   }
 
+  h1 {
+    color: white;
+  }
+
   .column {
     float: left;
     padding: 0px;

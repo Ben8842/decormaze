@@ -50,9 +50,7 @@ class App extends Component {
       <div>
         <Bar sizeValue="20" width="34" height="5" />
         <div>&nbsp;&nbsp;</div>
-        <div>&nbsp;&nbsp;</div>
-        <div>&nbsp;&nbsp;</div>
-        <div>&nbsp;&nbsp;</div>
+
         <p id="nameT">
           <p>Contact: perkinsben@yahoo.com </p>
         </p>
@@ -209,6 +207,7 @@ class App extends Component {
     );
     return (
       <div id="more">
+        <h1>Benjamin Perkins</h1>
         <Bar sizeValue="20" width="36" height="5" />
         <button id="topinfo" onClick={() => this.showAbout()}>
           About Me
