@@ -265,11 +265,19 @@ a:active {
   }
 
   .left {
+    width: 15%;
+  }
+
+  .leftS {
     width: 25%;
   }
 
+  .middle {
+    width: 69%;
+  }
+
   .right {
-    width: 75%;
+    width: 15%;
   }
 
   .entireThing {

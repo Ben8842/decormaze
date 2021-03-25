@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 
-class Bar extends Component {
+class Diamond extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      pathO: [[0, 0]],
+      pathO: [[this.props.height / 2, this.props.height / 2]],
       stepback: 3,
       complete: false,
       icon: [0, 0],
@@ -28,7 +28,7 @@ class Bar extends Component {
     this.pathgeneratorOrigin();
   }
 
-  renderSquare(x, y) {
+  renderDiamond(x, y) {
     var { pathO, stepback, icon } = this.state;
 
     var bid = "b1";
@@ -36,9 +36,7 @@ class Bar extends Component {
 
     var i = null;
     for (i = 0; i < pathO.length; i++) {
-      if (stepback === pathO.length && x === icon[0] && y === icon[1]) {
-        return <button className="icon" codex={x} codey={y}></button>;
-      } else if (
+      if (
         x === pathO[pathO.length - 1][0] &&
         y === pathO[pathO.length - 1][1] &&
         stepback < pathO.length
@@ -166,7 +164,7 @@ class Bar extends Component {
   }
 
   pathgenerator() {
-    var { pathO } = this.state;
+    var { pathO, height } = this.state;
 
     var exwy = pathO;
 
@@ -174,9 +172,11 @@ class Bar extends Component {
       var chooser = this.randomNumber(1, 3);
 
       if (chooser === 1) {
-        exwy.push([1, 0], [2, 0]);
+        //   exwy.push([height / 2, height / 2], [height / 2 + 1, height / 2]);
+        exwy.push([height / 2 + 1, height / 2], [height / 2 + 2, height / 2]);
       } else if (chooser === 2) {
-        exwy.push([0, 1], [0, 2]);
+        //  exwy.push([height / 2, height / 2], [height / 2, height / 2 + 1]);
+        exwy.push([height / 2, height / 2 + 1], [height / 2, height / 2 + 2]);
       }
     } else {
       var potentialMove = this.calculatesCoordinatesPotentialMoves(exwy, 1);
@@ -362,19 +362,41 @@ class Bar extends Component {
   }
 
   calculateIfMoveOnBoard(potentialMove) {
+    var { height } = this.state;
+    var half = height / 2;
     var oneBoard = null;
     var twoBoard = null;
     var threeBoard = null;
     var fourBoard = null;
     var boards = [oneBoard, twoBoard, threeBoard, fourBoard];
+
     for (var z = 0; z < 4; z++) {
       if (
         0 <= potentialMove[z][0] &&
-        potentialMove[z][0] <= this.props.width &&
+        potentialMove[z][0] <= height &&
         0 <= potentialMove[z][1] &&
-        potentialMove[z][1] <= this.props.height - 1
+        potentialMove[z][1] <= height - 1
       ) {
-        boards[z] = false;
+        if (potentialMove[z][0] <= half && potentialMove[z][1] <= half) {
+          if (potentialMove[z][0] + potentialMove[z][1] >= half) {
+            boards[z] = false;
+          }
+        }
+        if (potentialMove[z][0] < half && potentialMove[z][1] > half) {
+          if (potentialMove[z][0] >= potentialMove[z][1] - half) {
+            boards[z] = false;
+          }
+        }
+        if (potentialMove[z][0] >= half && potentialMove[z][1] <= half) {
+          if (potentialMove[z][0] - half <= potentialMove[z][1]) {
+            boards[z] = false;
+          }
+        }
+        if (potentialMove[z][0] >= half && potentialMove[z][1] >= half) {
+          if (potentialMove[z][0] + potentialMove[z][1] <= half + half + half) {
+            boards[z] = false;
+          }
+        }
       } else boards[z] = true;
     }
     return boards;
@@ -435,7 +457,7 @@ class Bar extends Component {
     var y;
     for (y = 0; y < this.props.height; y++) {
       for (x = 0; x < this.props.width; x++) {
-        elementS.push(this.renderSquare(x, y));
+        elementS.push(this.renderDiamond(x, y));
       }
       elementZ.push(
         <div className="newLine">
@@ -467,4 +489,4 @@ class Bar extends Component {
   }
 }
 
-export default Bar;
+export default Diamond;

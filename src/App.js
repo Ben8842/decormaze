@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Building from "./components/Building";
 import Bar from "./components/Bar";
+import Diamond from "./components/Diamond";
 
 import "./App.css";
 
@@ -101,7 +102,7 @@ class App extends Component {
             <Bar sizeValue="20" width="5" height="40" />
             <Bar sizeValue="20" width="5" height="40" />
           </div>
-          <div class="column right">
+          <div class="column middle">
             <p id="topinfoS">
               <button id="topinfo">
                 <a href="https://optimistic-babbage-2ed085.netlify.app/">
@@ -173,16 +174,26 @@ class App extends Component {
               </p>
             </p>
           </div>
+          <div class="column right">
+            <Bar sizeValue="20" width="5" height="40" />
+            <Bar sizeValue="20" width="5" height="40" />
+          </div>
         </div>
       </div>
     );
     const aboutContainer = (
       <div>
         <div class="row">
-          <div class="column left">
-            <Bar sizeValue="20" width="5" height="56" />
+          <div class="column leftS">
+            <Diamond sizeValue="8" width="8" height="8" />
+            <Diamond sizeValue="8" width="8" height="8" />
+            <Diamond sizeValue="8" width="8" height="8" />
+            <Diamond sizeValue="8" width="8" height="8" />
+            <Diamond sizeValue="8" width="8" height="8" />
+            <Diamond sizeValue="8" width="8" height="8" />
+            <Diamond sizeValue="8" width="8" height="8" />
           </div>
-          <div class="column right">
+          <div class="column middle">
             <p id="nameT">
               <p id="nameT">Name: Benjamin Perkins</p>
               <p>Contact: perkinsben@yahoo.com </p>
